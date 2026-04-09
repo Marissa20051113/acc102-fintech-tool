@@ -29,6 +29,12 @@ This interactive tool analyzes FinTech stock performance using real WRDS data. I
 2. Enter your WRDS username and password in the code
 3. Run: streamlit run app.py
 
+ Note:
+- The cloud preview link uses simulated data automatically for stable display.
+- For real WRDS data on your local machine:
+  1. Enter your WRDS username and password in the code
+  2. The system will auto-switch to real WRDS data when run locally
+
 ## 6. Product link / Demo
 - App link: 【Streamlit链接】
 - GitHub repo: 【GitHub仓库链接】
