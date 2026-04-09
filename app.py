@@ -36,6 +36,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+# Auto-detect environment: cloud = simulated data | local = real WRDS
+import os
+is_streamlit_cloud = os.environ.get("STREAMLIT_RUNTIME_ENVIRONMENT") == "cloud"
+
+# Set data mode (cloud uses simulation, local uses real WRDS)
+USE_SIMULATED_DATA = is_streamlit_cloud
+
 # 4. Data Access Function
 WRDS_USERNAME = "username"
 WRDS_PASSWORD = "password"
@@ -94,19 +101,21 @@ selected_ticker = company_dict[selected_company_name]
 # choose year
 selected_year = st.slider("Select Year", 2020, 2025, 2023)
 
-# loading data
-try:
-    df = load_data(selected_ticker, selected_year)
-except:
-   
-    date_rng = pd.date_range(start=f"{selected_year}-01-01", periods=200, freq='D')
-    sim_price = np.linspace(80, 150, 200) + np.random.randn(200) * 3
-    sim_vol = np.random.randint(1_000_000, 5_000_000, 200)
+# Load data based on environment
+if USE_SIMULATED_DATA:
+    # Simulated data for fast cloud preview (no WRDS connection)
+    date_rng = pd.date_range(start=f"{selected_year}-01-01", periods=252, freq='B')
     df = pd.DataFrame({
-        "date": date_rng,
-        "close_price": sim_price,
-        "volume": sim_vol
+        'date': date_rng,
+        'close_price': np.random.uniform(50, 200, len(date_rng))
     })
+else:
+    # Real WRDS data for local run (keeps your original logic)
+    try:
+        db = wrds.Connection(wrds_username=WRDS_USERNAME, wrds_password=WRDS_PASSWORD)
+        df = load_data(selected_ticker, selected_year)
+    except Exception as e:
+        st.error(f"WRDS connection failed: {e}. Please check credentials.")
 # ===========================================================
 
 # 5. Data Cleaning
