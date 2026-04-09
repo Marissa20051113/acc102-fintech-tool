@@ -37,8 +37,8 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # 4. Data Access Function
-WRDS_USERNAME = "yuemao2402"
-WRDS_PASSWORD = "Tzsjlm31415926"
+WRDS_USERNAME = "username"
+WRDS_PASSWORD = "password"
 
 def load_data(ticker, year):
     db = wrds.Connection(wrds_username=WRDS_USERNAME, wrds_password=WRDS_PASSWORD)
