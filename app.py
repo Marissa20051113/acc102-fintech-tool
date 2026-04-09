@@ -31,6 +31,7 @@ st.info("""
 # - Data accessed on 8th April 2026.
 # - Data relevance: The stock price and trading volume data from WRDS are highly relevant to this FinTech analysis because they reflect real‑world market performance, investor sentiment, and risk levels of listed financial technology companies. This data supports evidence‑based business analysis and decision-making.
 
+import numpy as np  
 import wrds
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -103,16 +104,15 @@ selected_year = st.slider("Select Year", 2020, 2025, 2023)
 
 # Load data based on environment
 if USE_SIMULATED_DATA:
-    # Simulated data for fast cloud preview (no WRDS connection)
     date_rng = pd.date_range(start=f"{selected_year}-01-01", periods=252, freq='B')
     df = pd.DataFrame({
         'date': date_rng,
-        'close_price': np.random.uniform(50, 200, len(date_rng))
+        'close_price': np.random.uniform(50, 200, len(date_rng)),
+        'volume': np.random.randint(100000, 5000000, len(date_rng))
     })
 else:
     # Real WRDS data for local run (keeps your original logic)
     try:
-        db = wrds.Connection(wrds_username=WRDS_USERNAME, wrds_password=WRDS_PASSWORD)
         df = load_data(selected_ticker, selected_year)
     except Exception as e:
         st.error(f"WRDS connection failed: {e}. Please check credentials.")
