@@ -33,11 +33,11 @@ pip install -r requirements.txt
 streamlit run app.py
 
 ### Online access
-[Your Streamlit link here]
+[https://acc102-fintech-tool-anxi5f842owvxr946r3laq.streamlit.app]
 
 ## 6. Product link / Demo
-- Streamlit App: [Your Streamlit link here]
-- GitHub Repository: [Your GitHub link here]
+- Streamlit App: [https://acc102-fintech-tool-anxi5f842owvxr946r3laq.streamlit.app]
+- GitHub Repository: [https://github.com/Marissa20051113/acc102-fintech-tool/edit/main/README.md]
 
 ## 7. Limitations & next steps
 Limitations:
