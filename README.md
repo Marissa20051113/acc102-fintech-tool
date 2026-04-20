@@ -1,64 +1,68 @@
 # FinTech Stock Performance Analysis Tool
-## ACC102 Mini-Assignment | Track 4 Interactive Tool
+## ACC102 Mini-Assignment (Track 4: Interactive Data Analysis Tool)
 
 ## 1. Problem & User
-This interactive tool analyzes FinTech stock performance using real WRDS data. It helps investors, analysts, and business students quickly view price trends, key metrics, risk levels, and compare two companies.
+This project builds an interactive stock analysis tool for FinTech companies using real WRDS data. It helps financial analysts, investors, and business students quickly view stock trends, compare companies, and assess risk levels without coding.
 
 ## 2. Data
 - Source: WRDS CRSP Daily Stock File (dsf)
-- Access date: 8 April 2026
+- Access Date: 8th April 2026
 - Key fields: date, closing price, trading volume
+- Fallback: Simulated data for public demonstration
 
 ## 3. Methods
-1. Connect to WRDS to retrieve historical stock data
+1. Connect to WRDS database to pull real stock data
 2. Data cleaning: remove missing values, standardize dates
-3. Calculate key metrics: average price, max/min price, volatility, total volume
-4. Build interactive interface with Streamlit
-5. Visualize price trends and monthly average
-6. Provide risk evaluation and investment suggestions
-7. Support two-company comparison (price, volume, volatility)
+3. Calculate key metrics: average price, volatility, total volume
+4. Risk metrics: Beta, annualized volatility, maximum drawdown, Sharpe ratio
+5. Build interactive UI with Streamlit (company selection, year slider, comparison)
+6. Visualize price trends, cumulative returns, and Bollinger Bands
+7. Perform cross-company comparison and DuPont financial analysis
+8. Provide risk evaluation and investment suggestions
 
 ## 4. Key Findings
 - Payment network stocks (Visa, Mastercard) show low volatility and high stability
-- FinTech stocks in crypto/wealth sectors have higher volatility and risk
-- Volatility reflects sector risk and business model characteristics
-- Monthly average price shows long‑term trend more clearly
+- Platform and crypto-related stocks have higher volatility and risk
+- Monthly average price smooths short‑term fluctuations
+- Volatility directly reflects risk level for different FinTech sectors
+- DuPont analysis shows that payment networks maintain higher profit margins and ROE, while platform firms rely more on asset turnover and leverage
 
 ## 5. How to run
-1. Install required packages: pip install -r requirements.txt
-2. Enter your WRDS username and password in the code
-3. Run: streamlit run app.py
+### Local run
+pip install -r requirements.txt
+streamlit run app.py
 
- Note:
-- The cloud preview link uses simulated data automatically for stable display.
-- For real WRDS data on your local machine:
-  1. Enter your WRDS username and password in the code
-  2. The system will auto-switch to real WRDS data when run locally
+### Online access
+[Your Streamlit link here]
 
 ## 6. Product link / Demo
-- App link: 【Streamlit链接】
-- GitHub repo: 【GitHub仓库链接】
+- Streamlit App: [Your Streamlit link here]
+- GitHub Repository: [Your GitHub link here]
 
 ## 7. Limitations & next steps
 Limitations:
-- Requires WRDS account to access real data
-- Analysis is historical only
-- First load may take time due to data retrieval
+- Requires WRDS account for real data; simulated fallback is used for public deployment
+- Analysis is based on historical data only
+- Cross-company comparison may use simulated data if WRDS connection fails
 
 Next steps:
-- Add more financial indicators (ROE, P/E ratio)
+- Add real‑time price API integration
+- Expand to include more financial indicators (P/E ratio, free cash flow)
 - Support more global FinTech companies
-- Add portfolio analysis function
+- Add portfolio risk simulation and backtesting
 
 ---
+This project aligns with ACC102’s learning objectives of applying data analytics to real-world business problems.
 
 ### Disclaimer
-This tool is for educational and analytical purposes only.  
-Historical data does not guarantee future results. No content constitutes financial advice.
+This tool is for educational and analytical purposes only. Historical data does not guarantee future results. No content constitutes financial advice.
 
 ### Author
-Yue MAO  
-ACC102 Mini-Assignment Track 4
+Yue MAO
+Xi'an Jiaotong-Liverpool University
+ACC102 Mini-Assignment, Track 4
 
 ### AI Disclosure
-AI tool assisted with code structure, visualization, and documentation. All logic and final work are completed by the author.
+AI tool (Doubao) assisted with code structure, visualization, and documentation. All final work and logic are completed by the author.
+
+Note: The tool uses WRDS data with simulated fallback for public deployment. First load may take 1-2 minutes due to dependency installation.
