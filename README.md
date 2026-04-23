@@ -30,8 +30,8 @@ This project develops an interactive data analysis tool for evaluating the stock
 
 ## 5. How to run
 ### Local run
-pip install -r requirements.txt
-streamlit run app.py
+- pip install -r requirements.txt
+- streamlit run app.py
 
 ### Online access
 [https://acc102-fintech-tool-anxi5f842owvxr946r3laq.streamlit.app]
