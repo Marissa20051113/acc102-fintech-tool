@@ -38,7 +38,7 @@ streamlit run app.py
 
 ## 6. Product link / Demo
 - Streamlit App: [https://acc102-fintech-tool-anxi5f842owvxr946r3laq.streamlit.app]
-- GitHub Repository: [https://github.com/Marissa20051113/acc102-fintech-tool/edit/main/README.md]
+- GitHub Repository: [https://github.com/Marissa20051113/acc102-fintech-tool]
 
 ## 7. Limitations & next steps
 Limitations:
