@@ -2,23 +2,24 @@
 ## ACC102 Mini-Assignment (Track 4: Interactive Data Analysis Tool)
 
 ## 1. Problem & User
-This project builds an interactive stock analysis tool for FinTech companies using real WRDS data. It helps financial analysts, investors, and business students quickly view stock trends, compare companies, and assess risk levels without coding.
+This project develops an interactive data analysis tool for evaluating the stock performance of major FinTech companies using historical data from WRDS. The tool is designed for financial analysts, investors, and business students who want to quickly explore price trends, compare firm performance, and evaluate risk metrics without advanced coding knowledge.
 
 ## 2. Data
 - Source: WRDS CRSP Daily Stock File (dsf)
 - Access Date: 8th April 2026
-- Key fields: date, closing price, trading volume
+- Key fields: date, closing price, trading volume,net income, assets, equity
 - Fallback: Simulated data for public demonstration
 
 ## 3. Methods
-1. Connect to WRDS database to pull real stock data
-2. Data cleaning: remove missing values, standardize dates
-3. Calculate key metrics: average price, volatility, total volume
-4. Risk metrics: Beta, annualized volatility, maximum drawdown, Sharpe ratio
-5. Build interactive UI with Streamlit (company selection, year slider, comparison)
-6. Visualize price trends, cumulative returns, and Bollinger Bands
-7. Perform cross-company comparison and DuPont financial analysis
-8. Provide risk evaluation and investment suggestions
+1. Establish connection to WRDS database and extract daily stock and fundamental data
+2. Data cleaning: remove missing values, standardize date formats, align time series
+3. Calculate core metrics: average price, volatility, total return, and trading volume
+4. Compute professional risk indicators: Beta, annualized volatility, max drawdown, Sharpe ratio
+5. Build an interactive web interface using Streamlit with company and year selection
+6. Visualize price trends, cumulative returns, Bollinger Bands, and rolling volatility
+7. Support cross-company comparison of price and volume trends
+8. Conduct financial ratio analysis and DuPont decomposition (ROE, profit margin, asset turnover, leverage)
+9. Generate automated analysis summaries and investment insights
 
 ## 4. Key Findings
 - Payment network stocks (Visa, Mastercard) show low volatility and high stability
@@ -41,16 +42,18 @@ streamlit run app.py
 
 ## 7. Limitations & next steps
 Limitations:
-- Requires WRDS account for real data; simulated fallback is used for public deployment
-- Analysis is based on historical data only
-- Cross-company comparison may use simulated data if WRDS connection fails
-
+- Real data access requires a valid WRDS account; simulated data is used for public deployment
+- Analysis is limited to historical performance and does not predict future returns
+- Some financial indicators may be incomplete if Compustat data is unavailable
+- Analysis does not include macroeconomic factors or external market shocks
+  
 Next steps:
-- Add real‑time price API integration
-- Expand to include more financial indicators (P/E ratio, free cash flow)
-- Support more global FinTech companies
-- Add portfolio risk simulation and backtesting
-
+- Integrate real-time stock price API for up-to-date market data
+- Expand financial indicators to include P/E ratio, P/B ratio, and free cash flow
+- Include more global and regional FinTech firms for wider comparison
+- Add portfolio construction and risk backtesting functions
+- Incorporate macroeconomic variables to improve explanatory power
+  
 ---
 This project aligns with ACC102’s learning objectives of applying data analytics to real-world business problems.
 
@@ -63,6 +66,6 @@ Xi'an Jiaotong-Liverpool University
 ACC102 Mini-Assignment, Track 4
 
 ### AI Disclosure
-AI tool (Doubao) assisted with code structure, visualization, and documentation. All final work and logic are completed by the author.
+AI tool (Doubao,Gemini) assisted with code structure, visualization, and documentation. All final work and logic are completed by the author.
 
 Note: The tool uses WRDS data with simulated fallback for public deployment. First load may take 1-2 minutes due to dependency installation.
